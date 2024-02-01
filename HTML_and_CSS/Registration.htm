@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <!-- external css -->
+    <link rel="stylesheet" href="./registrationstyle.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Registration</h1>
+        <form>
+            <label for="firstName" class="left">First Name</label>
+            <input type="text" id="firstName" class="right">
+            <br>
+            <label for="lastName" class="left">Last Name</label>
+            <input type="text" id="lastName" class="right">
+            <br>
+            <label for="email" class="left">Email</label>
+            <input type="email" id="email" required class="right">
+            
+            <label for="password" class="left">Password</label>
+            <input type="password" id="password" required class="right">
+            <br>
+            <label for="confirmPassword" class="left">Confirm Password</label>
+            <input type="confirmPassword" id="confirmPassword" required class="right">
+            <br>
+            <label for="mobile" class="left">Mobile Number</label>
+            <input type="number" id="mobile" class="right">
+            <br>
+            <label for="address" class="left">Address</label>
+            <textarea name="address" id="address" cols="30" rows="5" class="right"></textarea>
+            <br>
+            <label for="gender" class="left">Gender</label>
+            
+            <label for="male" class="right">
+                <input type="radio" id="male" name="gender" value="M">male
+            </label>
+            
+            <label for="female" class="right">
+                    <input type="radio" id="female" name="gender" value="F">female
+            </label>
+            
+            <br>
+            <label for="dob" class="left">DOB</label>
+            <input type="date" id="dob" class="right">
+            <br>
+            <label for="languages" class="left">Languages</label>
+            
+            
+            <label for="hindi" class="right">
+                <input type="checkbox" id="hindi" value="hindi" name="language">
+                hindi
+            </label>
+
+            
+            <label for="english" class="right">
+                <input type="checkbox" id="english" value="english" name="language">
+                english
+            </label>
+
+            
+            <label for="french" class="right">
+                <input type="checkbox" id="french" value="french" name="language">
+                french
+            </label>
+            <br>
+            <button>submit</button><button>reset</button>
+        </form>
+        
+    </main>
+</body>
+</html>
+<!-- 
+    name -> first name last name
+    email
+    mobile
+    address
+    gender
+    dob
+    languages
+ -->
