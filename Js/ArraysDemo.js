@@ -1,21 +1,24 @@
 // let firstName =  "Aman";
 
-// let studentNames = ["Aman","jhon",123,true,["age"],{name:"aman"},null,undefined]; 
+let studentNames = ["Aman","jhon",123,true,["age","Gender"],{name:"aman"},null,undefined]; 
 
-let studentNames = [];
+let student = {name:"aman",gender:"Male"}
+
+console.log(student["gender"]);
+// let studentNames = [];
 
 // to add data/ insert
 
 // push function
-studentNames.push("Aman");
+studentNames.push("Aman");//0
 console.log(studentNames);
-studentNames.push("dharam");
+studentNames.push("dharam");//1
 console.log(studentNames);
-studentNames.push("jack");
+studentNames.push("jack");//2
 console.log(studentNames);
-studentNames.push("jhon");
+studentNames.push("jhon");//3
 console.log(studentNames);
-studentNames.push("jim");
+studentNames.push("jim");//4
 console.log(studentNames);
 
 // updation 
@@ -53,3 +56,5 @@ for (let i = 0; i < studentNames.length; i++) {
 
 
 
+console.log(studentNames[4][0]);
+console.log(studentNames[5]["name"]);
