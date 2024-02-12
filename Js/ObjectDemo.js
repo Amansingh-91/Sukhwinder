@@ -54,3 +54,5 @@ console.log(personalDetails);
 for (let i in personalDetails){
     console.log(personalDetails[i]);
 }
+
+// nested arrays , arrays inside object , object inside array , nested ojects 
