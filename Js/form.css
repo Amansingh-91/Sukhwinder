@@ -1,0 +1,39 @@
+body{
+    text-align: center;
+    
+}
+.container{
+    display: grid;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+}
+.container form{
+    color: rgb(100, 100, 100);
+    background-color: antiquewhite;
+    padding: 10px;
+}
+
+.container form input {
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.container form button{
+    border-radius: 10px;
+    padding: 3px 5px;
+}
+
+
+.valid{
+    border-color: green;
+}
+
+.invalid{
+    border-color: red;
+}
+
+input:focus{
+
+    border-color: red;
+}

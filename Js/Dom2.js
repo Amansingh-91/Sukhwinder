@@ -63,6 +63,15 @@ myTitle.classList.toggle("second");
 myTitle.classList.toggle("second");
 
 
+// parent child and sibling relation
+
+
+const span = document.querySelector("#spandemo");
+// console.log(span);
+
+console.log(span.parentElement);
+
+
 
 
 

@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center ;
+    background-color: blueviolet;
+}
+
+.app{
+    background-color: rgb(194, 134, 250);
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    color: aliceblue;
+    min-width: 300px;
+    min-height: 300px;
+}
+h1,input,ul,li{
+    margin: 5px 0;
+}
+
+.app ul{
+    min-height: 150px;
+}
+
+.app input{
+    border-radius: 10px;
+    padding: 3px 5px;
+    border-color:transparent;
+    text-align: center;
+    width: 100%;
+}
+
+.app ul li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.app ul li span{
+    font-size: inherit;
+    
+}
+.complete{
+    text-decoration: line-through;
+    /* color: green; */
+}
