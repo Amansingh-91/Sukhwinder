@@ -44,3 +44,25 @@ const toggleCompleteTask = (e) => {
 // allTasks.forEach(applyCompleteTask);
 
 taskList.addEventListener("click",toggleCompleteTask);
+
+const search = document.querySelector("#search");
+const handleSearch = (e)=>{
+    console.log(e.target.value);
+    const allTasks = document.querySelectorAll("li");
+    const keyword  = e.target.value;
+    allTasks.forEach((task)=>{
+        console.log(task);
+        if(task.textContent.includes(keyword)){
+            task.classList.remove("hide");
+        }
+        else{
+            task.classList.add("hide");
+        }
+    })
+
+}
+
+search.addEventListener("keyup",handleSearch)
+
+// aman singh
+// sik

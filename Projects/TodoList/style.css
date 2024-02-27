@@ -51,3 +51,7 @@ h1,input,ul,li{
     text-decoration: line-through;
     /* color: green; */
 }
+
+.hide{
+    display: none !important;
+}
