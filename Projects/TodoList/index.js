@@ -49,9 +49,11 @@ const search = document.querySelector("#search");
 const handleSearch = (e)=>{
     console.log(e.target.value);
     const allTasks = document.querySelectorAll("li");
-    const keyword  = e.target.value;
+    // const keyword  = e.target.value;
+    const keyword  = search.value;
+
     allTasks.forEach((task)=>{
-        console.log(task);
+        // console.log(task);
         if(task.textContent.includes(keyword)){
             task.classList.remove("hide");
         }
