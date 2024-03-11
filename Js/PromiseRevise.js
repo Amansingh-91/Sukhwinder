@@ -62,20 +62,21 @@ const task3Promise = new Promise((resolve, reject) => {
 // })
 
 
-task3Promise.then((response) => {
-    console.log(response);
-    return new Promise((resolve, reject) => {
-        let cutOffMarks = Math.round(Math.random() * 100);
-        if (response > cutOffMarks) {
-            resolve(response);
-        }
-        else {
-            reject("apply in some other college");
-        }
-    });
-})
-.then((data=>{
-    
+task3Promise
+    .then((response) => {
+        console.log(response);
+        return new Promise((resolve, reject) => {
+            let cutOffMarks = Math.round(Math.random() * 100);
+            if (response > cutOffMarks) {
+                resolve(response);
+            }
+            else {
+                reject("apply in some other college");
+            }
+        });
+    })
+    .then((data => {
+
         console.log(data);
         return new Promise((resolve, reject) => {
             let cutOffScholarship = Math.round(90);
@@ -86,15 +87,13 @@ task3Promise.then((response) => {
                 reject("no scholarship for you");
             }
         })
-
-        
-}))
-.then(data=>{
-    console.log(data);
-})
-.catch((err) => {
-    console.log(err);
-})
+    }))
+    .then(data => {
+        console.log(data);
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 console.log("task 4");
 console.log("task 5");
 
