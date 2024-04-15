@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    margin-bottom: 1.5em;
+}
+
+ul.tasks {
+    max-width: 40vw;
+    margin-bottom: 1em;
+}
+
+li.task {
+    display: flex;
+    justify-content: space-between;
+}
