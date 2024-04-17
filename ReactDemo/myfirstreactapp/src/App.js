@@ -6,9 +6,10 @@ import UseStateExample from './components/UseStateExample';
 import UseStateExample2 from './components/UseStateExample2';
 import FormsExample from './components/FormsExample';
 import TODO from './components/TODO';
+import UseEffectExample from './components/UseEffectExample';
 const App = () => {
   return (
-    <TODO/>
+    <UseEffectExample/>
   )
 }
 
