@@ -17,3 +17,6 @@ li.task {
     display: flex;
     justify-content: space-between;
 }
+.deleted{
+    text-decoration: line-through;
+}

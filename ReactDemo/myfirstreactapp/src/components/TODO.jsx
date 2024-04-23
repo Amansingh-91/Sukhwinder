@@ -19,11 +19,17 @@ const TODO = () => {
     }
     const handleDeleteItem = (e)=>{
         e.stopPropagation();
+
         if(e.target.tagName === "SPAN"){
             console.log(e.target.parentElement.id);// item id from list 
             const newTasks = tasks.filter(task => task.id != e.target.parentElement.id)
             // console.log(newTasks);
             setTasks(newTasks)
+        }
+        else if(e.target.tagName === "LI"){
+            console.log(e.target.id);// item id from list 
+            // console.log(e.target.classList);
+            e.target.classList.toggle("deleted");
         }
     }
     return (

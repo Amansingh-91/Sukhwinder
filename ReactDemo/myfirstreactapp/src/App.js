@@ -9,9 +9,11 @@ import TODO from './components/TODO';
 import UseEffectExample from './components/UseEffectExample';
 import UseEffectExample2 from './components/UseEffectExample2';
 import UseEffectExample3 from './components/UseEffectExample3';
+import UseRefExample from './components/UseRefExample';
+import UseRefExample2 from './components/UseRefExample2';
 const App = () => {
   return (
-    <UseEffectExample3/>
+    <UseRefExample2/>
   )
 }
 
