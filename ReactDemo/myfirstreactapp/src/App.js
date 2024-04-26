@@ -11,9 +11,12 @@ import UseEffectExample2 from './components/UseEffectExample2';
 import UseEffectExample3 from './components/UseEffectExample3';
 import UseRefExample from './components/UseRefExample';
 import UseRefExample2 from './components/UseRefExample2';
+import ConditionalRendering from './components/ConditionalRendering';
+import PropDrilling from './components/PropDrilling';
+import ContextApi from './ContextApi';
 const App = () => {
   return (
-    <UseRefExample2/>
+    <ContextApi/>
   )
 }
 
