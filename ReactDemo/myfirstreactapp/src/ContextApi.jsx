@@ -12,14 +12,17 @@ const ContextApi = () => {
         <LoginContext.Provider value={[isLoggedin,setIsLoggedIn]}>
         <h1>context Api</h1>
         <Home/>
+        <Profile/>
+        <WishList/>
         </LoginContext.Provider>
     </div>
   )
 }
 const Home = () => {
+
     return (
         <>
-            <Profile/>
+            <h1>Home</h1>
         </>
     )
 }
@@ -27,7 +30,7 @@ const Home = () => {
 const Profile = () => {
     
 
-    return <div><WishList/></div>
+    return <div>Profile</div>
 }
 
 

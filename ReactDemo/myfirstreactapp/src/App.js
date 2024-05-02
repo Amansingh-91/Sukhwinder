@@ -14,9 +14,10 @@ import UseRefExample2 from './components/UseRefExample2';
 import ConditionalRendering from './components/ConditionalRendering';
 import PropDrilling from './components/PropDrilling';
 import ContextApi from './ContextApi';
+import UseReducerExample from './components/UseReducerExample';
 const App = () => {
   return (
-    <ContextApi/>
+    <UseReducerExample/>
   )
 }
 
