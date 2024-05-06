@@ -13,11 +13,12 @@ import UseRefExample from './components/UseRefExample';
 import UseRefExample2 from './components/UseRefExample2';
 import ConditionalRendering from './components/ConditionalRendering';
 import PropDrilling from './components/PropDrilling';
-import ContextApi from './ContextApi';
+import ContextApi from './components/ContextApi';
 import UseReducerExample from './components/UseReducerExample';
+import CustomHooks from './components/CustomHooks';
 const App = () => {
   return (
-    <UseReducerExample/>
+    <CustomHooks/>
   )
 }
 

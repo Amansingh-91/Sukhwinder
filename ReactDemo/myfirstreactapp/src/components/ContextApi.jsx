@@ -28,7 +28,7 @@ const Home = () => {
 }
 
 const Profile = () => {
-    
+    const [isLoggedin,setIsLoggedIn] = useContext(LoginContext);
 
     return <div>Profile</div>
 }
