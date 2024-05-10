@@ -16,9 +16,11 @@ import PropDrilling from './components/PropDrilling';
 import ContextApi from './components/ContextApi';
 import UseReducerExample from './components/UseReducerExample';
 import CustomHooks from './components/CustomHooks';
+import UseMemoExample from './UseMemoExample';
+import UseCallbackExample from './components/UseCallbackExample';
 const App = () => {
   return (
-    <CustomHooks/>
+    <UseCallbackExample/>
   )
 }
 
