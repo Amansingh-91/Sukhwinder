@@ -31,7 +31,7 @@ const UseCallbackExample = () => {
                     <button onClick={decrease}>dec</button>
                 </p>
         </center>
-        <CallBackTodo tasks={tasks} handleAddItem={handleAddItem} handleDeleteItem={handleDeleteItem} setItem={setItem} item={item}/>
+        <CallBackTodo/>
            
 
     </div>
