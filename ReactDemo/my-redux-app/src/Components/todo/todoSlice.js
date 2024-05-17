@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    tasks : [],
+    tasks : [{id:1,item:"cake"},{id:2,item:"coke"},{id:3,item:"chips"}],
 
 }
 
@@ -9,15 +9,21 @@ const todoSlice = createSlice({
     name:'todo',
     initialState,
     reducers:{
-        add: (state)=>{
-          state = [{id:1,item:"cake"}]
+        add: (state,action)=>{
+            const newItem = {id: Date.now(),item:action.payload.item}
+            state.tasks = [...state.tasks,newItem]
+            // state.tasks = [...state.tasks,action.payload.newItem]
+
         },
         complete : (state)=>{
             state = [{id:3,item:"chips"}]
 
         },
-        del : (state)=>{
-            state = [{id:2,item:"coke"}]
+        del : (state,action)=>{
+            const delId = action.payload.id;
+            // console.log(delId);
+            const remainingItem = state.tasks.filter(task => task.id != delId);
+            state.tasks = remainingItem;
         }
     }
 })
