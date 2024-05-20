@@ -35,6 +35,9 @@ const TODO = () => {
       console.log(e.target.parentElement.id);
       dispatch(del({id:e.target.parentElement.id}));
     }
+    else if(e.target.tagName === "LI"){
+      dispatch(complete({id:e.target.id}));
+    }
   }
 
   return (
@@ -49,7 +52,8 @@ const TODO = () => {
           {
             
             tasks.map(task => {
-              return <li key={task.id} id={task.id} className="task">{task.item}<span>X</span></li>;
+              const classes = task.complete ? "task deleted":"task";
+              return <li key={task.id} id={task.id} className={classes}>{task.item}<span>X</span></li>;
             })
 
           }

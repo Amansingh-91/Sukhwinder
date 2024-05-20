@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    tasks : [{id:1,item:"cake"},{id:2,item:"coke"},{id:3,item:"chips"}],
+    tasks : [{id:1,item:"cake",complete:true},{id:2,item:"coke",complete:true},{id:3,item:"chips",complete:false}],
 
 }
 
@@ -15,9 +15,16 @@ const todoSlice = createSlice({
             // state.tasks = [...state.tasks,action.payload.newItem]
 
         },
-        complete : (state)=>{
-            state = [{id:3,item:"chips"}]
-
+        complete : (state,action)=>{
+            const completeId = action.payload.id;
+            // console.log(completeId,action.payload);
+            const completeItem = state.tasks.map(task =>{
+                if(task.id == completeId){
+                    task.complete = !task.complete;
+                }
+                return task;
+            });
+            state.tasks = completeItem;
         },
         del : (state,action)=>{
             const delId = action.payload.id;
