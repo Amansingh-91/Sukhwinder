@@ -1,0 +1,17 @@
+.navbar{
+    background-color: black;
+    padding: 10px 0;
+    
+}
+
+.nav-item{
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+}
+
+.red{
+    
+    background-color: red;
+    
+}

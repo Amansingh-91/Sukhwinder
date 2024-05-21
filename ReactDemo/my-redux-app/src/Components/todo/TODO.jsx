@@ -32,7 +32,6 @@ const TODO = () => {
   const handleDelItem = (e)=>{
     e.stopPropagation();
     if(e.target.tagName === "SPAN"){
-      console.log(e.target.parentElement.id);
       dispatch(del({id:e.target.parentElement.id}));
     }
     else if(e.target.tagName === "LI"){
