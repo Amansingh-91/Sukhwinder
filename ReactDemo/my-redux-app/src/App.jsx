@@ -4,6 +4,8 @@ import TODO from './Components/todo/TODO'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import Navbar from './Components/Navbar/Navbar';
+import Book from './Components/Book/Book';
+import MyBook from './Components/Book/MyBook';
 const App = () => {
   // const count = useSelector(state=>state.counter.count);
   return (
@@ -25,8 +27,11 @@ const App = () => {
           <Route index element={ <Home />}></Route>
           <Route path='todo' element={ <TODO />}></Route>
           <Route path='counter' element={ <Counter />}></Route>
+          <Route path='book' element={<Book/>}>
+            <Route path=':id' element={<MyBook/>}></Route>
+          </Route>
         </Route>
-        <Route path="*" element = {<><Navbar/><h1>Page not fount</h1></>} ></Route>
+        <Route path="*" element = {<><Navbar/><h1>Page not found</h1></>} ></Route>
       </Routes>
     </BrowserRouter>
 
