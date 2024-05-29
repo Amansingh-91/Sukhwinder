@@ -1,6 +1,11 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+import { logout } from './loginSlice';
 
 const Navbar = () => {
+    const {isLoggedin} = useSelector(state=>state.login);
+    const dispatch = useDispatch();
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -12,10 +17,10 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                                <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Link</a>
+                                <NavLink className="nav-link" to="/products">Products</NavLink>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -39,7 +44,10 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bag-heart-fill me-2" viewBox="0 0 16 16">
                                 <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132" />
                             </svg>
-                            <button className="btn btn-outline-success" >Login</button>
+                            {isLoggedin ? <button className="btn btn-outline-success  " onClick={()=>{dispatch(logout())}}>Logout</button> : <>
+                            <NavLink className="btn btn-outline-success me-2" to="/login">Login</NavLink>
+                            <NavLink className="btn btn-outline-success" to="/signup">signup</NavLink>
+                            </>}
                         </div>
 
                     </div>

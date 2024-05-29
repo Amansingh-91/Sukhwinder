@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import Navbar from './Components/Ecom/Navbar';
 import SignUp from './Components/Ecom/SignUp';
+import Login from './Components/Ecom/Login';
 
 const EcomApp = () => {
   return (
@@ -14,6 +15,8 @@ const EcomApp = () => {
                     <Route path='product/:id' element = {<h1>Mobile 1</h1>}></Route>
                     <Route path='cart' element = {<h1>Cart</h1>}></Route>
                     <Route path='signup' element= {<SignUp/>}></Route>
+                    <Route path='login' element= {<Login/>}></Route>
+
                 </Route>
             </Routes>
         </BrowserRouter>
