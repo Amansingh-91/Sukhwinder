@@ -4,7 +4,7 @@ import { login } from './loginSlice';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
   const navigate = useNavigate();
   const {users} = useSelector(state=>state.signup)
   const {isLoggedin} = useSelector(state=>state.login)
