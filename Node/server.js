@@ -1,16 +1,26 @@
-const events = require("events");
-const fs = require("fs");
+const { MongoClient } = require("mongodb");
 
-const emitter = new events.EventEmitter();
-const myFile = fs.createReadStream("./demo.txt");
-emitter.on("aag lag gye",()=>{
-    console.log("pani dalo");
-})
 
-myFile.on("data",(chunk)=>{
-    console.log(chunk.toString());
+
+const client = new MongoClient("mongodb://127.0.0.1:27017/");
+
+
+const run = async () => {
+
+    try {
+        await client.connect();
+
+        const db = client.db("school");
+        const res = await db.collection("student").deleteOne({Name:"Aman Singh"});
+        console.log(res);
+
+        console.log("pingged db");
+    }
+    finally {
+        await client.close();
+    }
+}
+
+run().catch((err)=>{
+    console.log(err);
 });
-
-emitter.emit("aag lag gye");
-
-console.log("i am here");
