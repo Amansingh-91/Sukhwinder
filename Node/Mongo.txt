@@ -1,0 +1,38 @@
+mongodb uses BSON . similar to json
+
+step 1 
+Create or select db;
+use dbName;
+
+step 2 => identify table/collection you want to work on. if not present then create;
+
+to create collection => db.createCollection("CollectionName");
+
+step 3 => identify Crud Operation 
+
+C => create
+r => read 
+u => update
+d => delete
+
+step 4 => based on crud operation you wish to perform we provide command
+
+commands to use for these crud operations
+
+Create =>
+create one data => db.collectionName.insertOne({object data});
+create many data => db.collectionName.insertMany([{object data1},{object data2},...]);
+
+Update =>
+update one data => db.collectionName.updateOne({filter},{update object data});
+update many data => db.collectionName.updateMany({filter},{update object data});
+
+Delete =>
+Delete one data => db.collectionName.deleteOne({filter});
+Delete many data => db.collectionName.deleteMany({filter});
+
+read/find =>
+
+to get all data => db.collectionName.find();
+
+to select specific data => db.collectionName.find({filters});
