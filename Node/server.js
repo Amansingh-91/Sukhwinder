@@ -1,39 +1,57 @@
-// express
-
-// console.log("express");
-
+const mongoose = require("mongoose");
 const express = require("express");
 
-const app = express();
+const connectToDb = async(URI)=>{
+    try{
+        // "mongodb://127.0.0.1:27017/ecom"
+        await mongoose.connect(URI);
+        console.log("conneted to db");
 
-// get, post, put, patch, delete, listen, use
+    }catch(err){
+        console.log(err);
+    }
+}
 
-// 3000 9999
+connectToDb("mongodb://127.0.0.1:27017/ecom");
 
-// app.get("/",(req,res)=>{
-//     res.status(200).setHeader("content-type","text/plain").send("Hello Friends");
-// })
-// app.get("/user",(req,res)=>{
-//     res.setHeader("content-type","application/json");
-//     res.json({"Name":"Aman Saini","Age":29});
-// })
+//  app
 
-// app.get("/aman",(req,res)=>{
-//     res.sendFile("./demo.txt",{root:"./"});
-// })
+const app =  express();
 
-app.use("/",express.static("./staticApp/public"));
+// extract json data from body
+app.use(express.urlencoded());
+app.use(express.json());
 
-app.get("/",(req,res)=>{
-    res.status(200).sendFile("./staticApp/index.html",{root:"./"});
+// get Request
+
+app.get("/users",(req,res)=>{
+
+    res.status(200).json([{user:"Aman"},{user:"jack"},{user:"jhon"}]);
 })
-// app.get("/common.css",(req,res)=>{
-//     res.status(200).sendFile("./staticApp/common.css",{root:"./"});
-// })
 
-// app.get("/index.js",(req,res)=>{
-//     res.status(200).sendFile("./staticApp/index.js",{root:"./"});
-// })
-app.listen(8000,()=>{
-    console.log("listening on port 8000");
+// post request
+// you can receive data in 3 ways 
+// 1. as routing parameters
+app.get("/get-user/:id",(req,res)=>{
+    console.log(req.params);
+    res.send("data received")
 })
+
+// 2. query parameters
+app.post("/myquery",(req,res)=>{
+    console.log(req.query);
+    res.send("query received");
+})
+
+// 3. body
+app.post("/add-user",(req,res)=>{
+    console.log(req.body);
+    res.send("data received in body");
+})
+
+// listen to server request
+
+app.listen(8080,()=>{
+    console.log("listening on port 8080");
+})
+
