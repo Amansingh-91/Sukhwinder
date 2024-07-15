@@ -32,7 +32,9 @@ app.get("/users",(req,res)=>{
 // post request
 // you can receive data in 3 ways 
 // 1. as routing parameters
-app.get("/get-user/:id",(req,res)=>{
+
+// http://127.0.0.1:8080/get-user/2/profile/male
+app.get("/get-user/:id/profile/:gender",(req,res)=>{
     console.log(req.params);
     res.send("data received")
 })
@@ -40,11 +42,13 @@ app.get("/get-user/:id",(req,res)=>{
 // 2. query parameters
 app.post("/myquery",(req,res)=>{
     console.log(req.query);
+
     res.send("query received");
 })
 
 // 3. body
 app.post("/add-user",(req,res)=>{
+    console.log(req.headers);
     console.log(req.body);
     res.send("data received in body");
 })
@@ -55,3 +59,8 @@ app.listen(8080,()=>{
     console.log("listening on port 8080");
 })
 
+
+// After data received 
+// process data => validate data then check requirement then response 
+// response process
+// response create then send response to client
