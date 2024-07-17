@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const express = require("express");
-
+const {addNewCustomer,updateCustomer} = require("./customer.controller");
 const connectToDb = async(URI)=>{
     try{
         // "mongodb://127.0.0.1:27017/ecom"
@@ -52,6 +52,13 @@ app.post("/add-user",(req,res)=>{
     console.log(req.body);
     res.send("data received in body");
 })
+
+
+// add new customer
+app.post("/customer/add",addNewCustomer);
+
+// update customer
+app.post("/customer/update",updateCustomer);
 
 // listen to server request
 
