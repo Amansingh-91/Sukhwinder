@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// CRUD = 
 const Customer = require("./customer.model")(mongoose);
 function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -7,11 +7,17 @@ function validateEmail(email) {
 }
 function validatePhoneNumber(input_str) {
     var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
-    
-    return re.test(input_str);
-    
+    return re.test(input_str);   
+}
+function validateName(name){
+    if(name && name.trim().lenght > 0){
+        return name.trim();
+    }
+    return false;
 }
 const addNewCustomer = async(req,res)=>{
+    // login check
+
     // const newCustomer = req.body;
     const {firstName,lastName,email,mobile,address} = req.body;
     const newCustomer = {};
@@ -62,14 +68,35 @@ const updateCustomer = async(req,res)=>{
     const {user,updates} = req.body;
 
     // validations
+    
     try {
-        
-        let myUser = await Customer.findOne({email:user.email});
-        for (const key in updates) {
-            myUser[key] = updates[key];
+        if(user && user.firstName && validateEmail(user.email)){
+            let myUser = await Customer.findOne({email:user.email});
+            if(myUser){
+                for (const key in updates) {
+                    if(key == "email"){
+                        return res.status(200).send({success:false,msg:"customer are not allowed to change email"});
+
+                    }
+                    if(key == "mobile" && validatePhoneNumber(updates[key].trim())){
+                        myUser[key] = updates[key].trim();
+                    }
+
+                    if(key =="firstName" && validateName(updates[key])){
+                        myUser[key] = updates[key].trim();
+                    }
+                    
+                    
+                }
+                await myUser.save();
+                return res.status(201).send({success:true,msg:"customer updated"});
+            }
+            else{
+                return res.status(200).send({success:false,msg:"customer does not exist. please add customer"});
+            }
+            
         }
-        await myUser.save();
-        res.status(201).send({success:true,msg:"customer updated"});
+        
 
     } catch (error) {
 
