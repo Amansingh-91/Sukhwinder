@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const {addNewCustomer,updateCustomer, deleteCustomer} = require("./customer.controller");
+const { addCustomerValidation } = require("./customer.validation");
 const connectToDb = async(URI)=>{
     try{
         // "mongodb://127.0.0.1:27017/ecom"
@@ -55,7 +56,7 @@ app.post("/add-user",(req,res)=>{
 
 
 // add new customer
-app.post("/customer/add",addNewCustomer);
+app.post("/customer/add",addCustomerValidation,addNewCustomer);
 
 // update customer
 app.post("/customer/update",updateCustomer);

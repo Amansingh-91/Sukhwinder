@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const {validationResult} = require("express-validator");
 // CRUD = 
 const Customer = require("./customer.model")(mongoose);
 function validateEmail(email) {
@@ -16,42 +17,49 @@ function validateName(name){
     return false;
 }
 const addNewCustomer = async(req,res)=>{
+
+    const validation = validationResult(req);
+
+    console.log(validation.errors.length);
+    if(validation.errors.length > 0){
+        return res.send({success:false,msg:"checking validation",err:validation.errors});
+    }
     // login check
 
     // const newCustomer = req.body;
     const {firstName,lastName,email,mobile,address} = req.body;
     const newCustomer = {};
     // validations 0 - 10 = 
-    if(firstName && firstName.trim().length >0){
-        newCustomer.firstName = firstName.trim();
-    }
-    else{
-        res.status(400).send({success:false,msg:"first name field is required"});
-        return;
-    }
-    if(lastName && lastName.trim().length >0){
-        newCustomer.lastName = lastName.trim();
-    }
-    else{
-        res.status(400).send({success:false,msg:"last name field is required"});
-        return;
-    }
-    if(email && email.trim().length >0 && validateEmail(email.trim())){
-        newCustomer.email = email.trim();
-    }
-    else{
-        res.status(400).send({success:false,msg:"enter valid email required"});
-        return;
-    }
+    // if(firstName && firstName.trim().length >0){
+    //     newCustomer.firstName = firstName.trim();
+    // }
+    // else{
+    //     res.status(400).send({success:false,msg:"first name field is required"});
+    //     return;
+    // }
+    // if(lastName && lastName.trim().length >0){
+    //     newCustomer.lastName = lastName.trim();
+    // }
+    // else{
+    //     res.status(400).send({success:false,msg:"last name field is required"});
+    //     return;
+    // }
+    // if(email && email.trim().length >0 && validateEmail(email.trim())){
+    //     newCustomer.email = email.trim();
+    // }
+    // else{
+    //     res.status(400).send({success:false,msg:"enter valid email required"});
+    //     return;
+    // }
     
-    if(mobile && mobile.trim().length === 10 && validatePhoneNumber(mobile)){
+    // if(mobile && mobile.trim().length === 10 && validatePhoneNumber(mobile)){
 
-        newCustomer.mobile = mobile.trim();
-    }
-    else if (mobile.trim()){
-        res.status(400).send({success:false,msg:"enter valid mobile no."});
-        return;
-    }
+    //     newCustomer.mobile = mobile.trim();
+    // }
+    // else if (mobile.trim()){
+    //     res.status(400).send({success:false,msg:"enter valid mobile no."});
+    //     return;
+    // }
     try {
         const resp = await Customer.create(newCustomer);
         res.status(201).send({success:true,msg:"customer created",data:resp});
