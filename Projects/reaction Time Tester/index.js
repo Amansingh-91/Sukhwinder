@@ -5,7 +5,7 @@ let startTime = Date.now();
 const showShape = ()=>{
     moveShape();
     changeShape();
-    
+
     shape.classList.remove("hide");
     startTime = Date.now();
 }
@@ -62,3 +62,6 @@ shape.addEventListener("click",(e)=>{
     reactionTime.textContent = totalTime;
     setTimeout(showShape,2000);  
 })
+
+
+// structure = 
